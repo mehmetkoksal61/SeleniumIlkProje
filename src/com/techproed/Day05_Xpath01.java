@@ -7,21 +7,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Day04_LocatorLinkText {
+public class Day05_Xpath01 {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver" , "C:\\Users\\w2345\\Documents\\selenium dependencies\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
+        driver.navigate().to("http://a.testaddressbook.com/sign_in");
 
-        driver.navigate().to("http://a.testaddressbook.com/");
+        // //input[@type='email']
+        WebElement emailKutusu = driver.findElement(By.xpath("//input[@type='email']"));
+        emailKutusu.sendKeys("testtechproed@gmail.com");
 
-        WebElement signInLinki = driver.findElement(By.linkText("Sign in"));
-        signInLinki.click();
+        WebElement sifreKutusu = driver.findElement(By.xpath("//input[@type='password']"));
+        sifreKutusu.sendKeys("Test1234!");
 
-        WebElement homeLinki = driver.findElement(By.partialLinkText("Home"));
-        homeLinki.click();
+        WebElement sinInPutonu = driver.findElement(By.xpath("//input[@type='submit']"));
+        sinInPutonu.click();
 
     }
 }

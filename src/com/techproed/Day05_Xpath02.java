@@ -7,21 +7,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Day04_LocatorLinkText {
+public class Day05_Xpath02 {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver" , "C:\\Users\\w2345\\Documents\\selenium dependencies\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
-
         driver.navigate().to("http://a.testaddressbook.com/");
 
-        WebElement signInLinki = driver.findElement(By.linkText("Sign in"));
-        signInLinki.click();
+        // tagName ile ekrandaki yaziyi bulalim
+        WebElement tagName = driver.findElement(By.tagName("h1"));
+        System.out.println(tagName.getText());
 
-        WebElement homeLinki = driver.findElement(By.partialLinkText("Home"));
-        homeLinki.click();
-
+        //xpath ile bulalim. Sadece tagname yazmak yeterlidir
+        WebElement welcomeYazisi = driver.findElement(By.xpath("//h1"));
+        System.out.println(welcomeYazisi.getText());
     }
 }

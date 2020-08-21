@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Day04_LocatorLinkText {
+public class Day_Tekrar24 {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver" , "C:\\Users\\w2345\\Documents\\selenium dependencies\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -17,11 +18,14 @@ public class Day04_LocatorLinkText {
 
         driver.navigate().to("http://a.testaddressbook.com/");
 
-        WebElement signInLinki = driver.findElement(By.linkText("Sign in"));
-        signInLinki.click();
+        List<WebElement> elementler = driver.findElements(By.tagName("a"));
+        for(WebElement w : elementler){
+            System.out.println(w.getText());
+        }
 
-        WebElement homeLinki = driver.findElement(By.partialLinkText("Home"));
-        homeLinki.click();
-
+        driver.navigate().to("http://google.com");
+        WebElement aramaKutusu = driver.findElement(By.name("q"));
+        aramaKutusu.sendKeys("city bike");
+        aramaKutusu.submit();
     }
 }

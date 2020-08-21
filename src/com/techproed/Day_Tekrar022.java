@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Day04_LocatorLinkText {
+public class Day_Tekrar022 {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver" , "C:\\Users\\w2345\\Documents\\selenium dependencies\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -17,11 +17,10 @@ public class Day04_LocatorLinkText {
 
         driver.navigate().to("http://a.testaddressbook.com/");
 
-        WebElement signInLinki = driver.findElement(By.linkText("Sign in"));
-        signInLinki.click();
+        WebElement signInPutonu = driver.findElement(By.linkText("Sign in"));
+        signInPutonu.click();
 
         WebElement homeLinki = driver.findElement(By.partialLinkText("Home"));
         homeLinki.click();
-
     }
 }
